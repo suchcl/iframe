@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>壳子</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .iframe {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>我是一个页面壳子，一个容器</h2>
+    <button id="btn">发送消息</button>
+    <iframe src="./iframe.html" frameborder="0" class="iframe" id="myIframe"></iframe>
+    <script>
+        var btn = document.querySelector("#btn");
+        var user = {
+            name: "Nicholas Zakas",
+            age: 16,
+            num: 12
+        };
+        var arr = [
+            {
+                name: "Nicholas Zakas",
+                age: 12
+            },
+            {
+                name: "屈原",
+                age: 26
+            }
+        ];
+        btn.onclick = function () {
+            var iframe = document.getElementById("myIframe");
+            iframe.contentWindow.postMessage(arr, "*");
+        };
+    </script>
+</body>
+
+</html>
