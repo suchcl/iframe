@@ -6,10 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>outer</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrapper {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #iframe {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
 </head>
 
 <body>
-
+    <div class="wrapper">
+        <h3 class="outer">外部的DOM</h3>
+        <iframe src="./iframe_dom.html" id="iframe" frameborder="0"></iframe>
+    </div>
+    <script>
+        // var a = document.querySelector("#iframe");
+        // var b = a.contentWindow.document;
+        // var c = b.getElementById("inner");
+        // console.log(c.innerText);
+        console.log(document.querySelector("#iframe").contentDocument.querySelector("#inner").innerText);
+    </script>
 </body>
 
 </html>
